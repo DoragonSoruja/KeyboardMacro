@@ -15,26 +15,7 @@ namespace KeyboardMacro
         {
             if (enabled)
             {
-                if (e.KeyCode.ToString() == activateButton.Text.ToUpper())
-                {
-                    activateMacro();
-                }
-                else if (activateButton.Text == "U_Arrow" && e.KeyCode == Keys.Up)
-                {
-                    activateMacro();
-                }
-                else if (activateButton.Text == "D_Arrow" && e.KeyCode == Keys.Down)
-                {
-                    activateMacro();
-                }
-                else if (activateButton.Text == "L_Arrow" && e.KeyCode == Keys.Left)
-                {
-                    activateMacro();
-                }
-                else if (activateButton.Text == "R_Arrow" && e.KeyCode == Keys.Right)
-                {
-                    activateMacro();
-                }
+                if (e.KeyCode.ToString().ToUpper() == activateButton.Text.ToUpper()) { activateMacro(); }
             }
         }
 
@@ -53,39 +34,27 @@ namespace KeyboardMacro
             if (enabled)
             {
                 macroButton.Text = "Disable Macro";
-                activateButton.Enabled = false;
-                macro.Enabled = false;
+                activateButton.Enabled = false; macro.Enabled = false;
             }
             else
             {
                 macroButton.Text = "Enable Marco";
-                activateButton.Enabled = true;
-                macro.Enabled = true;
+                activateButton.Enabled = true; macro.Enabled = true;
             }
         }
         
         private void activateButton_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Up)
+            Keys[] keys = { Keys.Up, Keys.Down, Keys.Right, Keys.Left };
+
+            if (Array.IndexOf(keys, e.KeyCode) != -1)
             {
-                activateButton.Text = "U_Arrow";
-            }
-            else if (e.KeyCode == Keys.Down)
-            {
-                activateButton.Text = "D_Arrow";
-            }
-            else if (e.KeyCode == Keys.Right)
-            {
-                activateButton.Text = "R_Arrow";
-            }
-            else if (e.KeyCode == Keys.Left)
-            {
-                activateButton.Text = "L_Arrow";
+                activateButton.Text = e.KeyCode.ToString();
             }
             else
             {
                 activateButton.Clear();
-            } 
+            }
         }
     }
 }
