@@ -1,22 +1,19 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace KeyboardMacro
 {
     public partial class KeyboardMacros : Form
     {
+        private GlobalHotkey ghk;
+
         bool enabled = false;
         public KeyboardMacros()
         {
             InitializeComponent();
-        }
-
-        private void KeyboardMacros_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (enabled)
-            {
-                if (e.KeyCode.ToString().ToUpper() == activateButton.Text.ToUpper()) { activateMacro(); }
-            }
+            ghk = new GlobalHotkey(Constants.SHIFT, Keys.O, this);
         }
 
         private void activateMacro()
@@ -28,6 +25,19 @@ namespace KeyboardMacro
             return; 
         }
 
+        private void HandleHotkey()
+        {
+            WriteLine("Hotkey pressed!");
+            activateMacro();
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == Constants.WM_HOTKEY_MSG_ID)
+                HandleHotkey();
+            base.WndProc(ref m);
+        }
+
         private void macroButton_Click(object sender, EventArgs e)
         {
             enabled = !enabled;
@@ -35,11 +45,18 @@ namespace KeyboardMacro
             {
                 macroButton.Text = "Disable Macro";
                 activateButton.Enabled = false; macro.Enabled = false;
+
+                WriteLine("Trying to register SHIFT+O");
+                if (ghk.Register())
+                    WriteLine("Hotkey registered.");
+                else
+                    WriteLine("Hotkey failed to register");
+                
             }
             else
             {
                 macroButton.Text = "Enable Marco";
-                activateButton.Enabled = true; macro.Enabled = true;
+                activateButton.Enabled = true; macro.Enabled = true; textBox1.Clear();
             }
         }
         
@@ -56,5 +73,10 @@ namespace KeyboardMacro
                 activateButton.Clear();
             }
         }
-    }
+
+        private void WriteLine(string text)
+        {
+            textBox1.Text += text + Environment.NewLine;
+        }
+    }   
 }

@@ -40,7 +40,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 64);
+            this.label1.Location = new System.Drawing.Point(12, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(148, 24);
             this.label1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 113);
+            this.label2.Location = new System.Drawing.Point(12, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 24);
             this.label2.TabIndex = 1;
@@ -59,7 +59,7 @@
             // activateButton
             // 
             this.activateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.activateButton.Location = new System.Drawing.Point(167, 64);
+            this.activateButton.Location = new System.Drawing.Point(167, 25);
             this.activateButton.MaxLength = 1;
             this.activateButton.Name = "activateButton";
             this.activateButton.Size = new System.Drawing.Size(100, 26);
@@ -69,7 +69,7 @@
             // macro
             // 
             this.macro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.macro.Location = new System.Drawing.Point(167, 113);
+            this.macro.Location = new System.Drawing.Point(167, 74);
             this.macro.Name = "macro";
             this.macro.Size = new System.Drawing.Size(100, 26);
             this.macro.TabIndex = 3;
@@ -77,7 +77,7 @@
             // macroButton
             // 
             this.macroButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.macroButton.Location = new System.Drawing.Point(84, 174);
+            this.macroButton.Location = new System.Drawing.Point(84, 135);
             this.macroButton.Name = "macroButton";
             this.macroButton.Size = new System.Drawing.Size(158, 59);
             this.macroButton.TabIndex = 4;
@@ -87,15 +87,17 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(84, 24);
+            this.textBox1.Location = new System.Drawing.Point(16, 200);
+            this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(158, 20);
-            this.textBox1.TabIndex = 5;
+            this.textBox1.Size = new System.Drawing.Size(287, 51);
+            this.textBox1.TabIndex = 6;
             // 
             // KeyboardMacros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(333, 263);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.macroButton);
@@ -106,7 +108,6 @@
             this.KeyPreview = true;
             this.Name = "KeyboardMacros";
             this.Text = "Keyboard Macros";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyboardMacros_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
