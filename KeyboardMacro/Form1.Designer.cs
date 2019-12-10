@@ -33,7 +33,7 @@
             this.activateButton = new System.Windows.Forms.TextBox();
             this.macro = new System.Windows.Forms.TextBox();
             this.macroButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.commentBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -85,13 +85,14 @@
             this.macroButton.UseVisualStyleBackColor = true;
             this.macroButton.Click += new System.EventHandler(this.macroButton_Click);
             // 
-            // textBox1
+            // commentBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 200);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(287, 51);
-            this.textBox1.TabIndex = 6;
+            this.commentBox.Location = new System.Drawing.Point(16, 200);
+            this.commentBox.Multiline = true;
+            this.commentBox.Name = "commentBox";
+            this.commentBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.commentBox.Size = new System.Drawing.Size(287, 51);
+            this.commentBox.TabIndex = 6;
             // 
             // KeyboardMacros
             // 
@@ -99,7 +100,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(333, 263);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.commentBox);
             this.Controls.Add(this.macroButton);
             this.Controls.Add(this.macro);
             this.Controls.Add(this.activateButton);
@@ -120,7 +121,7 @@
         private System.Windows.Forms.TextBox activateButton;
         private System.Windows.Forms.TextBox macro;
         private System.Windows.Forms.Button macroButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox commentBox;
     }
 }
 

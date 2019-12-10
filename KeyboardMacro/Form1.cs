@@ -15,33 +15,30 @@ namespace KeyboardMacro
             InitializeComponent();
         }
 
-        private void activateMacro()
+        private void WriteLine(string text)
         {
-            foreach (char letter in macro.Text)
-            {
-                SendKeys.Send(letter.ToString());
-            }
-            return;
+            commentBox.Text += text + Environment.NewLine;
         }
 
         protected override void WndProc(ref Message m)
         {
             if (m.Msg == Constants.WM_HOTKEY_MSG_ID)
-                if (enabled) activateMacro();
-                else SendKeys.Send(activateButton.Text.ToString());
+                foreach (char letter in macro.Text)
+                {
+                    SendKeys.Send(letter.ToString());
+                }
             base.WndProc(ref m);
         }
 
         private void macroButton_Click(object sender, EventArgs e)
         {
             enabled = !enabled;
-            textBox1.Clear();
             if (enabled)
             {
                 macroButton.Text = "Disable Macro";
-                activateButton.Enabled = false; macro.Enabled = false;
+                activateButton.Enabled = false; macro.Enabled = false; commentBox.Clear();
 
-                if(macro.Text.ToString().ToLower().Contains(activateButton.Text.ToString().ToLower()))
+                if (macro.Text.ToString().ToLower().Contains(activateButton.Text.ToString().ToLower()))
                 {
                     macroButton.Text = "Enable Marco";
                     activateButton.Enabled = true; macro.Enabled = true; WriteLine("Macro cannot contain the same letter as the activate button.");
@@ -69,8 +66,15 @@ namespace KeyboardMacro
             }
             else
             {
+                commentBox.Clear();
+
+                if (ghk.Unregister())
+                    WriteLine("HotKey unregistered.");
+                else
+                    WriteLine("Hotkey failed to ungistered");
+
                 macroButton.Text = "Enable Marco";
-                activateButton.Enabled = true; macro.Enabled = true; textBox1.Clear();
+                activateButton.Enabled = true; macro.Enabled = true;
             }
         }
 
@@ -86,11 +90,6 @@ namespace KeyboardMacro
             {
                 activateButton.Clear();
             }
-        }
-
-        private void WriteLine(string text)
-        {
-            textBox1.Text += text + Environment.NewLine;
         }
     }   
 }
