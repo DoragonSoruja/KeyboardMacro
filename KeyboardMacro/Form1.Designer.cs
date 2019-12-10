@@ -77,7 +77,7 @@
             // macroButton
             // 
             this.macroButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.macroButton.Location = new System.Drawing.Point(84, 135);
+            this.macroButton.Location = new System.Drawing.Point(82, 126);
             this.macroButton.Name = "macroButton";
             this.macroButton.Size = new System.Drawing.Size(158, 59);
             this.macroButton.TabIndex = 4;
