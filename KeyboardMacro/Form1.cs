@@ -13,7 +13,7 @@ namespace KeyboardMacro
         public KeyboardMacros()
         {
             InitializeComponent();
-            ghk = new GlobalHotkey(Constants.SHIFT, Keys.O, this);
+            ghk = new GlobalHotkey(Constants.NOMOD, Keys.O, this);
         }
 
         private void activateMacro()
@@ -22,19 +22,14 @@ namespace KeyboardMacro
             {
                 SendKeys.Send(letter.ToString());
             }
-            return; 
-        }
-
-        private void HandleHotkey()
-        {
-            WriteLine("Hotkey pressed!");
-            activateMacro();
+            return;
         }
 
         protected override void WndProc(ref Message m)
         {
             if (m.Msg == Constants.WM_HOTKEY_MSG_ID)
-                HandleHotkey();
+                if (enabled) activateMacro();
+                else SendKeys.Send(Keys.O.ToString().ToLower());
             base.WndProc(ref m);
         }
 
@@ -46,12 +41,12 @@ namespace KeyboardMacro
                 macroButton.Text = "Disable Macro";
                 activateButton.Enabled = false; macro.Enabled = false;
 
-                WriteLine("Trying to register SHIFT+O");
+                WriteLine("Trying to register O");
                 if (ghk.Register())
                     WriteLine("Hotkey registered.");
                 else
                     WriteLine("Hotkey failed to register");
-                
+
             }
             else
             {
@@ -59,7 +54,7 @@ namespace KeyboardMacro
                 activateButton.Enabled = true; macro.Enabled = true; textBox1.Clear();
             }
         }
-        
+
         private void activateButton_KeyDown(object sender, KeyEventArgs e)
         {
             Keys[] keys = { Keys.Up, Keys.Down, Keys.Right, Keys.Left };
