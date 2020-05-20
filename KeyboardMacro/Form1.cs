@@ -41,7 +41,7 @@ namespace KeyboardMacro
                 if (macro.Text.ToString().ToLower().Contains(activateButton.Text.ToString().ToLower()))
                 {
                     macroButton.Text = "Enable Marco";
-                    activateButton.Enabled = true; macro.Enabled = true; WriteLine("Macro cannot contain the same letter as the activate button.");
+                    activateButton.Enabled = true; macro.Enabled = true; WriteLine("Macro cannot contain the same letter as the activation button.");
                     enabled = !enabled;  return;
                 }
 
@@ -49,7 +49,7 @@ namespace KeyboardMacro
                 {
                     ghk = new GlobalHotkey(Constants.SHIFT, (Keys)Enum.Parse(typeof(Keys), activateButton.Text.ToString(), true), this);
 
-                    WriteLine("Trying to register SHIFT + " + activateButton.Text);
+                    WriteLine("Trying to register SHIFT+" + activateButton.Text);
                 }
                 else
                 {
@@ -73,7 +73,7 @@ namespace KeyboardMacro
                 else
                     WriteLine("Hotkey failed to ungistered");
 
-                macroButton.Text = "Enable Marco";
+                macroButton.Text = "Enable Macro";
                 activateButton.Enabled = true; macro.Enabled = true;
             }
         }
