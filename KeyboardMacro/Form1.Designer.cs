@@ -32,39 +32,39 @@ namespace KeyboardMacro
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KeyboardMacros));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.promptLabel = new System.Windows.Forms.Label();
+            this.macroLabel = new System.Windows.Forms.Label();
             this.activateButton = new System.Windows.Forms.TextBox();
             this.macro = new System.Windows.Forms.TextBox();
             this.macroButton = new System.Windows.Forms.Button();
             this.commentBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.oneButtonLabel = new System.Windows.Forms.Label();
             this.consoleLabel = new System.Windows.Forms.Label();
-            this.replace = new System.Windows.Forms.RadioButton();
-            this.dontReplace = new System.Windows.Forms.RadioButton();
+            this.lightMode = new System.Windows.Forms.RadioButton();
+            this.darkMode = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
-            // label1
+            // promptLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(19, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Activation Button\r\n";
+            this.promptLabel.AutoSize = true;
+            this.promptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.promptLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.promptLabel.Location = new System.Drawing.Point(19, 37);
+            this.promptLabel.Name = "promptLabel";
+            this.promptLabel.Size = new System.Drawing.Size(174, 25);
+            this.promptLabel.TabIndex = 0;
+            this.promptLabel.Text = "Activation Button\r\n";
             // 
-            // label2
+            // macroLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(114, 84);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 25);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Macro";
+            this.macroLabel.AutoSize = true;
+            this.macroLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.macroLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.macroLabel.Location = new System.Drawing.Point(114, 84);
+            this.macroLabel.Name = "macroLabel";
+            this.macroLabel.Size = new System.Drawing.Size(72, 25);
+            this.macroLabel.TabIndex = 1;
+            this.macroLabel.Text = "Macro";
             // 
             // activateButton
             // 
@@ -106,16 +106,16 @@ namespace KeyboardMacro
             this.commentBox.Size = new System.Drawing.Size(287, 51);
             this.commentBox.TabIndex = 6;
             // 
-            // label3
+            // oneButtonLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(234, 42);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 18);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "One button";
+            this.oneButtonLabel.AutoSize = true;
+            this.oneButtonLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.oneButtonLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.oneButtonLabel.Location = new System.Drawing.Point(234, 42);
+            this.oneButtonLabel.Name = "oneButtonLabel";
+            this.oneButtonLabel.Size = new System.Drawing.Size(81, 18);
+            this.oneButtonLabel.TabIndex = 7;
+            this.oneButtonLabel.Text = "One button";
             // 
             // consoleLabel
             // 
@@ -128,28 +128,30 @@ namespace KeyboardMacro
             this.consoleLabel.TabIndex = 8;
             this.consoleLabel.Text = "Console";
             // 
-            // replace
+            // lightMode
             // 
-            this.replace.AutoSize = true;
-            this.replace.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.replace.Location = new System.Drawing.Point(48, 289);
-            this.replace.Name = "replace";
-            this.replace.Size = new System.Drawing.Size(186, 17);
-            this.replace.TabIndex = 9;
-            this.replace.TabStop = true;
-            this.replace.Text = "Replace Button Press With Macro";
-            this.replace.UseVisualStyleBackColor = true;
+            this.lightMode.AutoSize = true;
+            this.lightMode.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lightMode.Location = new System.Drawing.Point(48, 289);
+            this.lightMode.Name = "lightMode";
+            this.lightMode.Size = new System.Drawing.Size(78, 17);
+            this.lightMode.TabIndex = 9;
+            this.lightMode.TabStop = true;
+            this.lightMode.Text = "Light Mode";
+            this.lightMode.UseVisualStyleBackColor = true;
+            this.lightMode.CheckedChanged += new System.EventHandler(this.lightMode_CheckedChanged);
             // 
-            // dontReplace
+            // darkMode
             // 
-            this.dontReplace.AutoSize = true;
-            this.dontReplace.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dontReplace.Location = new System.Drawing.Point(48, 312);
-            this.dontReplace.Name = "dontReplace";
-            this.dontReplace.Size = new System.Drawing.Size(148, 17);
-            this.dontReplace.TabIndex = 10;
-            this.dontReplace.Text = "Activation Button + Macro";
-            this.dontReplace.UseVisualStyleBackColor = true;
+            this.darkMode.AutoSize = true;
+            this.darkMode.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.darkMode.Location = new System.Drawing.Point(48, 312);
+            this.darkMode.Name = "darkMode";
+            this.darkMode.Size = new System.Drawing.Size(78, 17);
+            this.darkMode.TabIndex = 10;
+            this.darkMode.Text = "Dark Mode";
+            this.darkMode.UseVisualStyleBackColor = true;
+            this.darkMode.CheckedChanged += new System.EventHandler(this.darkMode_CheckedChanged);
             // 
             // KeyboardMacros
             // 
@@ -158,19 +160,23 @@ namespace KeyboardMacro
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(372, 341);
-            this.Controls.Add(this.dontReplace);
-            this.Controls.Add(this.replace);
+            this.Controls.Add(this.darkMode);
+            this.Controls.Add(this.lightMode);
             this.Controls.Add(this.consoleLabel);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.oneButtonLabel);
             this.Controls.Add(this.commentBox);
             this.Controls.Add(this.macroButton);
             this.Controls.Add(this.macro);
             this.Controls.Add(this.activateButton);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.macroLabel);
+            this.Controls.Add(this.promptLabel);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(388, 380);
+            this.MinimumSize = new System.Drawing.Size(388, 380);
             this.Name = "KeyboardMacros";
             this.Text = "Keyboard Macros";
             this.ResumeLayout(false);
@@ -180,16 +186,16 @@ namespace KeyboardMacro
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label promptLabel;
+        private System.Windows.Forms.Label macroLabel;
         private System.Windows.Forms.TextBox activateButton;
         private System.Windows.Forms.TextBox macro;
         private System.Windows.Forms.Button macroButton;
         private System.Windows.Forms.TextBox commentBox;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label oneButtonLabel;
         private Label consoleLabel;
-        private RadioButton replace;
-        private RadioButton dontReplace;
+        private RadioButton lightMode;
+        private RadioButton darkMode;
     }
 }
 

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using KeyboardMacro.Properties;
 
 namespace KeyboardMacro
 {
@@ -49,13 +51,13 @@ namespace KeyboardMacro
                 {
                     ghk = new GlobalHotkey(Constants.SHIFT, (Keys)Enum.Parse(typeof(Keys), activateButton.Text.ToString(), true), this);
 
-                    WriteLine("Trying to register SHIFT+" + activateButton.Text);
+                    WriteLine("Trying to register SHIFT+" + activateButton.Text + " as a hotkey");
                 }
                 else
                 {
                     ghk = new GlobalHotkey(Constants.NOMOD, (Keys)Enum.Parse(typeof(Keys), activateButton.Text.ToString(), true), this);
 
-                    WriteLine("Trying to register " + activateButton.Text);
+                    WriteLine("Trying to register " + activateButton.Text + " as a hotkey");
                 }
 
                 if (ghk.Register())
@@ -90,6 +92,34 @@ namespace KeyboardMacro
             {
                 activateButton.Clear();
             }
+        }
+
+        private void lightMode_CheckedChanged(object sender, EventArgs e)
+        {
+            BackColor = Color.FromArgb(255, 255, 255);
+            promptLabel.ForeColor = Color.Black;
+            macroLabel.ForeColor = Color.Black;
+            oneButtonLabel.ForeColor = Color.Black;
+            consoleLabel.ForeColor = Color.Black;
+            darkMode.ForeColor = Color.Black;
+            lightMode.ForeColor = Color.Black;
+            macroButton.BackColor = Color.White;
+            macroButton.ForeColor = Color.Black;
+            macroButton.FlatAppearance.BorderColor = Color.FromArgb(40, 40, 40);
+        }
+
+        private void darkMode_CheckedChanged(object sender, EventArgs e)
+        {
+            BackColor = Color.FromArgb(40, 40, 40);
+            promptLabel.ForeColor = Color.White;
+            macroLabel.ForeColor = Color.White;
+            oneButtonLabel.ForeColor = Color.White;
+            consoleLabel.ForeColor = Color.White;
+            darkMode.ForeColor = Color.White;
+            lightMode.ForeColor = Color.White;
+            macroButton.BackColor = Color.FromArgb(40, 40, 40);
+            macroButton.ForeColor = Color.White;
+            macroButton.FlatAppearance.BorderColor = Color.White;
         }
     }   
 }
